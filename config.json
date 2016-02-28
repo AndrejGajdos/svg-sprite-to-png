@@ -1,0 +1,10 @@
+{
+  "image": {
+    "color": "#BFBFBF",
+    "width": 36,
+    "height": 36
+  },
+  "paths": {
+    "svg_sprite": "./src/icons.svg"
+  }
+}

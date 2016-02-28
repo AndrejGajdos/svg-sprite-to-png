@@ -1,0 +1,30 @@
+{
+  "name": "gulp-svg-sprite-to-png",
+  "version": "0.0.0",
+  "description": "Convert SVG sprite into PNG images",
+  "homepage": "http://github.com/AndrejGajdos/svg-sprite-to-png.git",
+  "repository": "git://github.com/AndrejGajdos/svg-sprite-to-png.git",
+  "author": "Andrej Gajdos <mail@andrejgajdos.com> (http://andrejgajdos.com/)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "gulp",
+    "png",
+    "svg"
+  ],
+  "author": "Andrej Gajdos",
+  "license": "MIT",
+  "devDependencies": {
+    "console-timestamp": "^0.3.0",
+    "del": "^2.2.0",
+    "gulp": "^3.9.1",
+    "gulp-gm": "0.0.8",
+    "gulp-rename": "^1.2.2",
+    "gulp-svg2png": "^1.0.0",
+    "mkdirp": "^0.5.1",
+    "rmdir": "^1.2.0",
+    "xmldom": "^0.1.22"
+  }
+}
