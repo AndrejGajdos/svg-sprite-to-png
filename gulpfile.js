@@ -29,8 +29,20 @@ gulp.task('default', function() {
 
     for (var i = 0; i < symbols.length; i++) {
       // parse elements from svg sprite
-      var pathElement = symbols.item(i).getElementsByTagName("path")[0];
-      pathElement.setAttribute("fill", config.image.color);
+      var paths = symbols.item(i).getElementsByTagName("path");
+
+      var pathElement = null;
+      if (paths.length > 1) {
+        for (var x = 0; x < paths.length; x++) {
+          var curPath = paths[x];
+          curPath.setAttribute("fill", config.image.color);
+          pathElement = pathElement + curPath.toString()
+        }
+      } else {
+        var curPath = paths[0];
+        curPath.setAttribute("fill", config.image.color);
+        pathElement = curPath.toString()
+      }
       var symbolId = symbols.item(i).getAttribute("id");
       var viewBoxVal = symbols.item(i).getAttribute("viewBox");
       var fileHeader = "<svg xmlns=\"http://www.w3.org/2000/svg\" style=\"display: none;\" viewBox=\"" + viewBoxVal + "\">";
@@ -38,8 +50,8 @@ gulp.task('default', function() {
 
       // create separate svg files
       fs.writeFile("./build/svg_files_" + colorName + "/" + symbolId + ".svg",
-        fileHeader + pathElement.toString() + fileFooter,
-        function(err) {
+        fileHeader + pathElement + fileFooter,
+        function (err) {
           if (err) {
             return console.log(timestamp('[hh:mm:ss] ') + err);
           }
